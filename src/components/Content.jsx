@@ -1,4 +1,4 @@
-import classes from './content.module.css';
+import classes from './Content.module.css';
 
 function ContentPage({title, children}) {
     return(
