@@ -1,0 +1,53 @@
+:root{
+    --background-color: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    --black-color: #0a0a0a;
+    --border-color: #ffffff1a;
+    --white-color: #fff;
+    --sky-color: #667eea;
+    --input-background: #ffffff0d;
+    --main-transition: 0.3s;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--black-color);
+    color: var(--white-color);
+}
+html {
+    scroll-behavior: smooth;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* small */
+@media (min-width: 786px) {
+    .container {
+        width: 750px;
+    }
+}
+/* medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+/* large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
