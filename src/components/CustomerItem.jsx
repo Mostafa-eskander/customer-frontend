@@ -1,10 +1,11 @@
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useNavigate, useSubmit } from "react-router-dom";
 
 import classes from './CustomerItem.module.css';
 import { Button } from "./AuthForm";
 
 function CustomerItem({customer}) {
     const submit = useSubmit();
+    const navigate = useNavigate();
 
     function startDeleteHandler() {
         const proceed = window.confirm('هل انت مأكد ؟');
@@ -12,6 +13,10 @@ function CustomerItem({customer}) {
         if(proceed) {
             submit(null, {method: 'delete'});
         }
+    }
+
+    function backHandler() {
+        navigate(-1)
     }
 
     const isData = customer.updatedAt;
@@ -29,6 +34,7 @@ function CustomerItem({customer}) {
                 <Link to='Edit'>تعديل</Link>
                 <Button onClick={startDeleteHandler}>حذف</Button>
                 <Link to='transaction'>معاملات</Link>
+                <Button onClick={backHandler}>الغاء</Button>
             </menu>
         </div>
     )
