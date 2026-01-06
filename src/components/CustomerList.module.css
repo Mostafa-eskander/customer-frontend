@@ -23,6 +23,7 @@
 .list td {
     padding: 10px;
     border: 1px solid var(--white-color);
+    overflow: hidden;
 }
 .list button {
     padding: 10px;

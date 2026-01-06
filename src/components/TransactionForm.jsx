@@ -98,6 +98,8 @@ export async function action({request,params}) {
         return new Response(JSON.stringify({ message: "لم نتمكن من حفظ البيانات" }), { status: 500 });
     }
 
+    alert(`${method === "PUT" ? 'تم التعديل علي المعاملة' : 'تم انشاء معاملة جديد'}`)
+
     return redirect('/transactions');
 };
 

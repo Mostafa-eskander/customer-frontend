@@ -79,5 +79,6 @@ export async function action({request, params}) {
         return new Response(JSON.stringify({ message: 'لم نتمكن من إنقاذ العميل.' }),{status: 500})
     }
 
+    alert(`${method === "PUT" ? 'تم التعديل علي العميل' : 'تم انشاء عميل جديد'}`)
     return redirect('/customers')
 }
