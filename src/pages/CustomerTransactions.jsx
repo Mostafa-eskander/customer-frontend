@@ -4,7 +4,7 @@ import TransactionList from "../components/TransactionList";
 import getAuthToken from "../util/auth";
 
 function CustomerTransaction() {
-    const {transaction} = useLoaderData();
+    const { transaction } = useLoaderData();
 
     return (
         <section>
@@ -32,7 +32,7 @@ export async function loaderTransaction() {
     })
     
     if(!response.ok) {
-        throw new Response(JSON.stringify({ message: 'لم نتمكن من جلب المعاملات.' }),{status: 500});
+        throw json(JSON.stringify({ message: 'لم نتمكن من جلب المعاملات.' }),{status: 500});
     }else { 
         const resData = await response.json();
         return resData;
@@ -41,6 +41,6 @@ export async function loaderTransaction() {
 
 export async function loader() {
     return {
-        transaction: await loaderTransaction(),
-    };
+        transaction: loaderTransaction(),
+    }
 }

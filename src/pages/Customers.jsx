@@ -28,7 +28,7 @@ export async function loaderCustomers() {
     
 
     if(!response.ok) {
-        throw new Response(JSON.stringify({ message: 'لم نتمكن من جلب العملاء.' }),{status: 500});
+        throw json(JSON.stringify({ message: 'لم نتمكن من جلب العملاء.' }),{status: 500});
     }else { 
         const resData = await response.json();
         return resData

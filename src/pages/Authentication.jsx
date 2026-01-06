@@ -33,7 +33,7 @@ export async function action({request}) {
     }
 
     if(!response.ok) {
-        throw new Response(JSON.stringify({messageانا: "تعذر التحقق من هوية المستخدم."}),{status:500})
+        throw json(JSON.stringify({messageانا: "تعذر التحقق من هوية المستخدم."}),{status:500})
     }
 
     const resData = await response.json();
