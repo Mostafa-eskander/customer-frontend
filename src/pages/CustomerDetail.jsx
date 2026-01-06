@@ -33,7 +33,7 @@ export async function loaderCustomer(id) {
     });
 
     if(!response.ok) {
-        throw new Response(JSON.stringify({ message: 'تعذر جلب تفاصيل الحدث المحدد.' }),{status: 500});
+        throw json({ message: 'تعذر جلب تفاصيل الحدث المحدد.' },{status: 500});
     }else {
         const resData = await response.json();
         return resData
@@ -50,7 +50,7 @@ async function loaderCustomers() {
     });
     
     if(!response.ok) {
-        throw new Response(JSON.stringify({ message: 'لم نتمكن من جلب العملاء.' }),{status: 500});
+        throw json({ message: 'لم نتمكن من جلب العملاء.' },{status: 500});
     }else {
         const resData = await response.json();
         return resData
@@ -78,7 +78,7 @@ export async function action({params,request}) {
     });
 
     if (!response.ok) {
-        throw new Response(JSON.stringify({ message: "تعذر حذف العميل."}),{status: 500});
+        throw json(JSON.stringify({ message: "تعذر حذف العميل."}),{status: 500});
     }
 
     return redirect('/customers');

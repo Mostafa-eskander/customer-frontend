@@ -80,15 +80,10 @@ export async function loaderTransaction (id) {
     });
 
     if(!response.ok) {
-        console.log('one')
-        throw new Response(JSON.stringify({ message: 'لم نتمكن من جلب المعاملات.' }),{status: 500});
+        throw json(JSON.stringify({ message: 'لم نتمكن من جلب المعاملات.' }),{status: 500});
     }else { 
         const resData = await response.json();
-        const data = resData.filter((res) => {
-            return (
-                res.client._id === id
-            )
-        })
+        const data = resData.filter((res) => res.client?._id === id)
         return data;
     }
 }

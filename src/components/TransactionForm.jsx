@@ -80,7 +80,6 @@ export async function action({request,params}) {
         const transactionId = params.transactionId;
         url = 'https://customer-backend-lzss.onrender.com/api/transactions/' + transactionId;
     }
-    console.log(params)
 
     const response = await fetch(url , {
         method: method,

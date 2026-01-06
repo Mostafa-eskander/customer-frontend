@@ -49,12 +49,6 @@ function AuthForm() {
                 </ul>
             )}
             {data && data.message && <p>{data.message}</p>}
-            {!isLogin && (
-                <p>
-                    <label htmlFor="name">الاسم</label>
-                    <input type="name" name="name" id="name" placeholder="ادخل الاسم" required/>
-                </p>
-            )}
             <p>
                 <label htmlFor="email">ايميل</label>
                 <input type="email" name="email" id="email" placeholder="ادخل الايميل" required/>

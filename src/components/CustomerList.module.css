@@ -45,6 +45,9 @@
 .id {
     font-size: 8px;
 }
+.transacationId {
+    font-size: 4px;
+}
 .name {
     color: var(--white-color);
 }

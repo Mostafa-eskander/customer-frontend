@@ -19,7 +19,7 @@ function CustomerList({customers = []}) {
                     </thead>
                     <tbody>
                         {customers.map((customer) => {
-                            const isData = customer.createdAt;
+                            const isData = customer.updatedAt;
                             const data1 = (new Date(isData)).toLocaleDateString();
                             const data = (new Date(isData)).toLocaleTimeString()
                             return(

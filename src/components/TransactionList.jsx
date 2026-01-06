@@ -1,12 +1,13 @@
 import classes from './CustomerList.module.css';
 import { Button } from './AuthForm';
-import { StyledLink } from '../pages/Home';
 import { deleteTransaction } from '../util/auth';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function TransactionList({transaction = []}) {
     const [transactions,setTransactions] = useState(transaction);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     async function deleteHandler(id) {
         if(!window.confirm("هل انت تريذ الحذف ؟")) return;
@@ -21,6 +22,7 @@ export default function TransactionList({transaction = []}) {
             setLoading(false);
         }
     }
+
     return(
         <div className={`conatiner ${classes.list}`}>
             <h1>جميع المعاملات</h1>
@@ -39,12 +41,12 @@ export default function TransactionList({transaction = []}) {
                     </thead>
                     <tbody>
                             {transactions.map((tran) => {
-                                const isData = tran.createdAt;
+                                const isData = tran.updatedAt;
                                 const data1 = (new Date(isData)).toLocaleDateString();
                                 const data = (new Date(isData)).toLocaleTimeString()
                                 return(
                                     <tr key={tran._id}>
-                                        <td className={classes.id}>{tran._id}</td>
+                                        <td className={classes.transacationId}>{tran._id}</td>
                                         <td>{tran.client?.name || 'غير محدد'}</td>
                                         <td>{tran.type}</td>
                                         <td>{tran.amount}</td>
@@ -57,6 +59,7 @@ export default function TransactionList({transaction = []}) {
                                         <td>
                                             <div className={classes.action}>
                                                 <Button onClick={() => deleteHandler(tran._id)}>{loading ? "جاري الحذف ..." : "حذف"}</Button>
+                                                <Button onClick={() => navigate(`/transactions/${tran._id}/edit`)}>تعديل</Button>
                                             </div>
                                         </td>
                                     </tr>

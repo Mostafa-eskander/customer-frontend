@@ -25,6 +25,7 @@ import {loader as transactionFormLoader} from './components/TransactionForm';
 import RootTransactions from './pages/RootTransaction';
 import Transaction from './pages/Transaction';
 import {loader as loaderTransactions } from './pages/Transaction'
+import EditTransaction from './pages/EditTransaction';
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
             index: true,
             element: <CustomerTransaction />,
             loader: loaderTransaction,
+          },
+          {
+            path: ':transactionId/edit',
+            element: <EditTransaction />
           },
           {
             path: 'newTransaction',

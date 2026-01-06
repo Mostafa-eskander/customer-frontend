@@ -7,8 +7,15 @@ function ErrorPage() {
     let title = 'حدث خطأ!';
     let message = 'حدث خطأ ما!'
 
+    if (error.status) {
+        try {
+            // parse الرسالة من الـ Response
+            message = JSON.parse(error.data)?.message || message;
+        } catch {}
+    }
+    
     if(error.status === 500) {
-        message = error.data?.message;
+        message = JSON.parse(error.data)?.message || message;
     }
 
     if(error.status === 404) {
