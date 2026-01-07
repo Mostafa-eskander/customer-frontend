@@ -46,6 +46,10 @@
 .id {
     font-size: 8px;
 }
+.delete {
+    width: 100%;
+    margin: 0 0 10px;
+}
 .transacationId {
     font-size: 4px;
 }
