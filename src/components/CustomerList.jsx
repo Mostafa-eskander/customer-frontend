@@ -1,10 +1,11 @@
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useNavigate, useSubmit } from "react-router-dom";
 
 import classes from './CustomerList.module.css';
 import { Button } from "./AuthForm";
 import getAuthToken from '../util/auth'
 
 function CustomerList({customers = []}) {
+    const navigate = useNavigate();
     async function deleteAllHandler() {
         const proceed = window.confirm('هل أنت متأكد من حذف جميع العملاء وجميع المعاملات؟');
         if (!proceed) return;
@@ -28,12 +29,13 @@ function CustomerList({customers = []}) {
         }
 
         alert('تم حذف جميع العملاء وجميع المعاملات بنجاح!');
-        window.location.reload(); // تحديث الصفحة بعد الحذف
 
         } catch (err) {
-        console.error(err);
-        alert('حدث خطأ أثناء الحذف!');
+            console.error(err);
+            alert('حدث خطأ أثناء الحذف!');
         }
+
+        navigate("/");
     }
     return(
         <div className={`container ${classes.list}`}>
