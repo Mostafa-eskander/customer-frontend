@@ -46,13 +46,14 @@ export default function TransactionList({transaction = []}) {
             }
     
             alert('تم حذف جميع العملاء وجميع المعاملات بنجاح!');
-            window.location.reload(); // تحديث الصفحة بعد الحذف
     
             } catch (err) {
-            console.error(err);
-            alert('حدث خطأ أثناء الحذف!');
+                console.error(err);
+                alert('حدث خطأ أثناء الحذف!');
             }
+        navigate('/')
     }
+
 
     return(
         <div className={`conatiner ${classes.list}`}>
