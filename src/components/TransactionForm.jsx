@@ -34,14 +34,18 @@ function TransactionForm({method ,clients = []}) {
                 </select>
             </p>
             <p>
-                <label htmlFor="amount">ادخل المبلغ</label>
-                <input type="number" name="amount" id="amount" required placeholder="ادخل الفلوس" />
+                <label htmlFor="price">ادخل مبلخ الواحدة</label>
+                <input type="number" name="price" id="price" required placeholder="ادخل مبلخ الواحدة" />
+            </p>
+            <p>
+                <label htmlFor="quantity">ادخل العدد</label>
+                <input type="number" name="quantity" id="quantity" required placeholder="ادخل العدد" />
             </p>
             <p>
                 <label htmlFor="type">اختر نوع العملية</label>
                 <select name="type" id="type" required>
                     <option value='مصروف'>دفعة</option>
-                    <option value='دخل'>اخذ</option>
+                    <option value='دخل'>بضاعة</option>
                 </select>
             </p>
             <p>
@@ -49,7 +53,7 @@ function TransactionForm({method ,clients = []}) {
                 <textarea id="description" name="description" required placeholder="ادخل الوصف"></textarea>                
             </p>
             <div className={classes.action}>
-                <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
+                <button type="button" onClick={cancelHandler}>
                     الغاء
                 </button>
                 <Button disabled={isSubmitting}>
@@ -69,7 +73,8 @@ export async function action({request,params}) {
 
     const customerData = {
         client: data.get('client'),
-        amount: data.get('amount'),
+        price: data.get('price'),
+        quantity: data.get('quantity'),
         type: data.get('type'),
         description: data.get('description')
     } 

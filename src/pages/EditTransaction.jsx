@@ -10,9 +10,11 @@ function EditTransaction() {
     const navigate = useNavigate();
 
     const [transaction, setTransaction] = useState(null);
-    const [amount, setAmount] = useState("");
+    const [price, setPrice] = useState("");
+    const [quantity, setQuantity] = useState("");
     const [type, setType] = useState("مصروف");
     const [description, setDescription] = useState("");
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         const token = getAuthToken();
@@ -22,12 +24,17 @@ function EditTransaction() {
             .then(res => res.json())
             .then(data => {
                 setTransaction(data);
-                setAmount(data.amount);
+                setPrice(data.price);
+                setQuantity(data.quantity);
                 setType(data.type);
                 setDescription(data.description);
+                setTotal(data.total);
             })
             .catch(err => console.error(err));
     }, [transactionId]);
+    useEffect(() => {
+        setTotal(price * quantity); // تحديث كل مرة يتغير السعر أو العدد
+    }, [price, quantity]);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -39,7 +46,7 @@ function EditTransaction() {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
             },
-            body: JSON.stringify({ amount, type, description }),
+            body: JSON.stringify({ price , quantity, type, description }),
         });
 
         if (!response.ok) {
@@ -59,8 +66,16 @@ function EditTransaction() {
             <h2>تعديل المعاملة</h2>
             <form onSubmit={submitHandler}>
                 <div>
-                    <label>المبلغ:</label>
-                    <input type="number" value={amount} onChange={e => setAmount(e.target.value)} />
+                    <label>مبلغ الواحدة</label>
+                    <input type="number" value={price} onChange={e => setPrice(e.target.value)} />
+                </div>
+                <div>
+                    <label>العدد</label>
+                    <input type="number" value={quantity} onChange={e => setQuantity(e.target.value)} />
+                </div>
+                <div>
+                    <label>الإجمالي:</label>
+                    <input type="number" value={total} disabled />
                 </div>
                 <div>
                     <label>النوع:</label>
@@ -75,6 +90,7 @@ function EditTransaction() {
                 </div>
                 <div className={classes.action}>
                     <Button type="submit">حفظ التعديلات</Button>
+                    <button type="button" onClick={() => navigate(-1)}>الغاء</button>
                 </div>
             </form>
         </div>

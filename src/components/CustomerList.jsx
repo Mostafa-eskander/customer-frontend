@@ -1,11 +1,44 @@
-import { Link } from "react-router-dom";
+import { Link, useSubmit } from "react-router-dom";
 
 import classes from './CustomerList.module.css';
+import { Button } from "./AuthForm";
+import getAuthToken from '../util/auth'
 
 function CustomerList({customers = []}) {
+    async function deleteAllHandler() {
+        const proceed = window.confirm('هل أنت متأكد من حذف جميع العملاء وجميع المعاملات؟');
+        if (!proceed) return;
+
+        try {
+        const token = getAuthToken();
+
+        // نعمل طلب DELETE للباك إند
+        const response = await fetch('https://customer-backend-lzss.onrender.com/api/clients/all', {
+            method: 'DELETE',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            alert('حدث خطأ: ' + errorData.message);
+            return;
+        }
+
+        alert('تم حذف جميع العملاء وجميع المعاملات بنجاح!');
+        window.location.reload(); // تحديث الصفحة بعد الحذف
+
+        } catch (err) {
+        console.error(err);
+        alert('حدث خطأ أثناء الحذف!');
+        }
+    }
     return(
         <div className={`container ${classes.list}`}>
             <h1>جميع العملاء</h1>
+            <Button className={classes.delete} onClick={deleteAllHandler}>حذف جميع العملاء والمعاملات</Button>
             <div className="table">
                 <table>
                     <thead>
