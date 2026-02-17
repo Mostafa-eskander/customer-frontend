@@ -33,7 +33,7 @@ function HomePage() {
     const token = getAuthToken();
     return(
         <ContentPage title="مرحبا بكم !">
-            <h3>الشاذلي جروب لي أدارة حسابات العملاء</h3>
+            <h3>جروب لي أدارة حسابات العملاء</h3>
             {!token && <StyledLink to='/auth'>تسجيل دخول / انشاء حساب</StyledLink>}
         </ContentPage>
     )
