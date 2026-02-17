@@ -1,16 +1,140 @@
-# React + Vite
+# 📦 E‑Commerce Next.js
+This is a full-featured e-commerce web application built with Next.js, designed to provide a smooth and modern shopping experience.
+It is fully responsive, working seamlessly across all devices. The project focuses on:
+- ✔️ Browsing products
+- ✔️ Product detail pages
+- ✔️ Shopping cart management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛍️ Shopping Experience
+- Display products on the homepage.
+- Detailed product pages.
+- Add products to the shopping cart.
+- Clean and user-friendly UI.
 
-## Expanding the ESLint configuration
+🛒 Cart
+- Save selected products in the cart.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+📱 Fully Responsive
+Optimized design for all screen sizes.
+
+---
+
+## 🌐 Live Demo
+
+👉 **[View Live Project](https://e-commerce-nextjs-eight-phi.vercel.app/)**
+
+---
+
+### 🛠️ Technologies Used
+
+- Next.js
+- React
+- JavaScript (ES6+)
+- CSS / CSS Modules
+- HTML5
+- Vercel – Deployment platform
+
+---
+
+## 📂 Project Structure
+
+```
+.next/          # Next.js build files
+app/            # Main application pages & routing
+component/      # Reusable UI components
+lib/            # Utility functions & API calls
+node_modules/   # Installed dependencies
+public/         # Static assets (images, icons)
+store/          # State management (Redux / Context)
+.gitignore
+jsconfig.json   # JavaScript configuration for paths
+next.config.js  # Next.js configuration
+package.json
+package-lock.json
+README.md
+```
+Explanation of key folders:
+
+- app/ → Contains all Next.js pages (home, product, cart, etc.)
+- component/ → Reusable UI components like Navbar, Footer, ProductCard
+- lib/ → Helper functions, API calls, or data fetching utilities
+- store/ → State management logic (Redux or Context API)
+- public/ → Static assets: images, icons, fonts
+- .next/ → Auto-generated build folder (do not edit)
+
+---
+
+### 🧰 Prerequisites
+Make sure your system has:
+
+- ✔️ Node.js (latest LTS)
+- ✔️ npm or yarn
+
+---
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+1️⃣ Clone the repository
+```
+git clone https://github.com/Mostafa-eskander/E-commerce-nextjs.git
+```
+2️⃣ Navigate to project folder
+```
+cd E-commerce-nextjs
+```
+3️⃣ Install dependencies
+```
+npm install
+```
+4️⃣ Run the development server
+```
+npm run dev
+```
+The app will run on:
+```
+http://localhost:3000
+```
+
+---
+
+### 🌐 Deployment
+
+This project is deployed using Vercel.
+To deploy your own version:
+```
+npm run build
+```
+Then upload the Next.js folder to Vercel.
+
+---
+
+### 🎯 Future Improvements
+
+- ✨ Stripe / PayPal integration
+- ✨ Full user system with authentication & roles
+- ✨ Product search & filtering
+- ✨ Wishlist / Favorites
+- ✨ Admin panel for managing products and orders
+
+---
+
+#### 👨‍💻 Author
+
+Mostafa Mahmoud
+- [GitHub: ](https://github.com/mostafa-eskander)
+
+---
+
+## 📄 License
+
+Open-source — free to use and modify 🛠️
