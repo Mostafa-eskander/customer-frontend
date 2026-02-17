@@ -8,7 +8,7 @@ function MainNavigation() {
     return(
         <header className={classes.header}>
             <div className={`container ` + classes.container}>
-                <h1>جروب</h1>
+                <h1>الشاذلي جروب</h1>
                 <ul>
                     <li>
                         <NavLink 
